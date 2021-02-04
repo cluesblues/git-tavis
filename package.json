@@ -1,0 +1,47 @@
+{
+  "name": "git-travis",
+  "description": "Git sub command to show travis status",
+  "version": "3.1.0",
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "prompt": "^1.0.0",
+    "travis-ci": "^2.1.1",
+    "which": "^1.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "jenkins-mocha": "^4.1.2",
+    "nyc": "^10.3.0"
+  },
+  "keywords": [
+    "travis-ci",
+    "travis",
+    "git-cli",
+    "builds"
+  ],
+  "main": "./lib/",
+  "bin": {
+    "git-travis": "./bin/git-travis.js"
+  },
+  "scripts": {
+    "pretest": "eslint --fix .",
+    "test": "jenkins-mocha ./tests/",
+    "posttest": "nyc check-coverage; nyc report"
+  },
+  "preferGlobal": "true",
+  "bugs": {
+    "url": "http://github.com/davglass/git-travis/issues"
+  },
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/davglass/git-travis.git"
+  },
+  "nyc": {
+      "check-coverage": true,
+      "statements": 83,
+      "lines": 80,
+      "branches": 65,
+      "functions": 88
+  }
+}
